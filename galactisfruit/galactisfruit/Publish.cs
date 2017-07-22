@@ -17,8 +17,7 @@ namespace galactisfruit
             {
                 for (int y = 0; y < flag.Width; ++y)
                 {
-                    var N = scaleBetween(map[x, y], 0, 255, 0, 1);
-                    flag.SetPixel(x, y, Color.FromArgb(N, 0, 0));
+                    flag.SetPixel(x, y, Color.FromArgb(Convert.ToInt16(map[x,y]),0, 0));
                 }
             }
 
@@ -26,9 +25,6 @@ namespace galactisfruit
             flag.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
         }
 
-        private static int scaleBetween(double unscaledNum, double minAllowed, double maxAllowed,double  min,double max)
-        {
-            return Convert.ToInt16((maxAllowed - minAllowed) * (unscaledNum - min) / (max - min) + minAllowed);
-        }
+        
     }
 }
