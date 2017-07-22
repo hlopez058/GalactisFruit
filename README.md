@@ -12,13 +12,13 @@ through a 2d array of perlin noise outputs and assigning it to an RGB color. The
 I created a surface model using equations for a sphere. I then used the model to generate the 'z' position to place into the perlin noise generator.
 Eventhough i got good results it wasn't appearing round enough.The key to making it look round was to mess with the 'z' of the perlin noise input. I had to multiply it by 200 ish times to get a roundness out of the noise.
 
+## Initial Results
+The results of the initial render was promising. I had to tweak the octaves and persistence variables to adjust the look and feel.
 
-Image Size of 256, Notice that the brightness is lower.
 ![alt text](imgs/map_02.jpg "first output")
 
-Image Size of 512, Notice that its much brighter.
-![alt text](imgs/map_01.jpg "first output")
+I created three surface models and just adjusted the noise a bit. I set each of the different surfaces to the R, G,B scales in the color code.
 
 
-I suspect that i have a conversion problem with my values into the 0-256 color code range. I am most likely not normalizing the values correctly so my brightness 
-is adjusted because the range is not mapped correctly.
+![alt text](imgs/map_03.jpg "first output")
+
