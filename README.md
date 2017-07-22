@@ -9,5 +9,5 @@ I wanted to start simple. So i built a console app around the perlin noise c# im
 I needed to publish an image to see how good the perlin noise generator was at making textures that resemlbled a planet. So i had the app spit out an image by walking
 through a 2d array of perlin noise outputs and assigning it to an RGB color. The output needed to be scaled from 0-1 to 0-256.
 
-![alt text](galactisfruit/galactisfruit/bin/Debug/map.jpg "first output")
+![alt text](imgs/map_01.jpg "first output")
 
