@@ -18,7 +18,7 @@ namespace galactisfruit
             //inputs : solar system information
 
 
-            var img_size = 512;
+            var img_size = 256;
             var map = new double[img_size, img_size];
             
             //center the image
