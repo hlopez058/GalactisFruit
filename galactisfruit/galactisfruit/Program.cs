@@ -15,6 +15,8 @@ namespace galactisfruit
             Console.WriteLine("Galactis Fruit - Generate Planet Textures");
 
 
+
+
             //inputs : solar system information
 
 

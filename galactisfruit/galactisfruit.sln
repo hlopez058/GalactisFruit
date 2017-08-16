@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "galactisfruit_console", "galactisfruit\galactisfruit_console.csproj", "{4065FB70-B645-40D5-9F2B-EBD271673FE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "galactis", "noisemaker\galactis.csproj", "{5B1F7212-3303-4FCF-AFD5-9D6912F41590}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "galactis.viewer", "galactis.viewer\galactis.viewer.csproj", "{30159CB3-C929-4F87-A564-A6E0654B5987}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{4065FB70-B645-40D5-9F2B-EBD271673FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4065FB70-B645-40D5-9F2B-EBD271673FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4065FB70-B645-40D5-9F2B-EBD271673FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B1F7212-3303-4FCF-AFD5-9D6912F41590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B1F7212-3303-4FCF-AFD5-9D6912F41590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B1F7212-3303-4FCF-AFD5-9D6912F41590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B1F7212-3303-4FCF-AFD5-9D6912F41590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30159CB3-C929-4F87-A564-A6E0654B5987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30159CB3-C929-4F87-A564-A6E0654B5987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30159CB3-C929-4F87-A564-A6E0654B5987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30159CB3-C929-4F87-A564-A6E0654B5987}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
