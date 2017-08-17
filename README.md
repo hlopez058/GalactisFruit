@@ -11,7 +11,7 @@ The images are then rendered in real time using Perlin's Noise algorithm.
 I created a "library" that can be embedded in future projects. I then created a viewer that can run the library and accept parameter changes through a gui. This will help me prototype the correct color biomes and the look i am going for depending on the planet classes. 
 
 
-![alt text](imgs/mapmaker.jpg "mapmaker")
+![alt text](imgs/mapmaker.png "mapmaker")
 
 
 
