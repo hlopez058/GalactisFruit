@@ -4,6 +4,17 @@
 A program that generates images of planets for space games. The planets are procedurally generated using astronomical rule sets.
 The images are then rendered in real time using Perlin's Noise algorithm. 
 
+
+
+## Last Updates: Galactis viewer 
+
+I created a "library" that can be embedded in future projects. I then created a viewer that can run the library and accept parameter changes through a gui. This will help me prototype the correct color biomes and the look i am going for depending on the planet classes. 
+
+
+![alt text](imgs/mapmaker.jpg "mapmaker")
+
+
+
 ## Starting Out
 I wanted to start simple. So i built a console app around the perlin noise c# implementation available on github. I then added a couple helpr functions of my own.
 I needed to publish an image to see how good the perlin noise generator was at making textures that resemlbled a planet. So i had the app spit out an image by walking

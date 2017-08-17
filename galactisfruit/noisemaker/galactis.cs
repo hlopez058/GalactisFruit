@@ -9,45 +9,111 @@ namespace galactis
 {
     public class MapMaker
     {
-        public MapMaker()
+        public class MapSettings
         {
-
+            public int frequency { get; set; }
+            public int octaves { get; set; }
+            public int persistence { get; set; }
+            public int redistribution { get; set; }
         }
 
-
-        public static Map CreateMap(int height, int width)
+        public MapMaker()
         {
-            var elevation = GetNoiseMap(height, width, 1, 4, 2, 1);
-            var moisture = GetNoiseMap(height, width, 1, 4, 2, 1);
+            
+        }
+
+        public Map CreateMap(int height,int width,MapSettings elevation_settings, MapSettings moisture_settings)
+        {
+
+            var elevation = GetNoiseMap(height,
+                                            width,
+                                            elevation_settings.frequency,
+                                            elevation_settings.octaves,
+                                            elevation_settings.persistence,
+                                            elevation_settings.redistribution);
+
+            var moisture = GetNoiseMap(height,
+                                        width,
+                                        moisture_settings.frequency,
+                                        moisture_settings.octaves,
+                                        moisture_settings.persistence,
+                                        moisture_settings.redistribution);
+
+
             var map = new Map(height, width);
+
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
                 {
                     var e = elevation[y, x];
+
                     var m = moisture[y, x];
+
                     var biome = GetBiome(e, m);
+
                     var b = BiomeColorizer(biome);
+
                     map.colored[y, x] = b;
+
                     map.elevation[y, x] = e;
                 }
             }
 
             return map;
         }
+
+        public static Map CreateMap(int height, int width)
+        {
+            var elevation = GetNoiseMap(height, width, 1, 4, 2, 1);
+
+            var moisture = GetNoiseMap(height, width, 1, 1, 2, 1);
+
+            var map = new Map(height, width);
+
+            for (int y = 0; y < height; y++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    var e = elevation[y, x];
+
+                    var m = moisture[y, x];
+
+                    var biome = GetBiome(e, m);
+
+                    var b = BiomeColorizer(biome);
+
+                    map.colored[y, x] = b;
+
+                    map.elevation[y, x] = e;
+                }
+            }
+
+            return map;
+        }
+
         public class Map
         {
             public Color[,] colored;
+
             public double[,] elevation;
-            public Map(int height, int width) { colored = new Color[height, width]; elevation = new double[height, width]; }
+
+            public Map(int height, int width)
+                { colored = new Color[height, width]; elevation = new double[height, width]; }
         }
 
-        public static double[,] GetNoiseMap(int height,int width,
-            int frequency,int octaves,int persistence,int redistribution)
+        public static double[,] GetNoiseMap(
+            int height,
+            int width,
+            int frequency,
+            int octaves,
+            int persistence,
+            int redistribution)
         {
             var noise = new Perlin();
                
             double[,] map = new double[height, width];
+
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
@@ -59,8 +125,10 @@ namespace galactis
                     map[y,x] = Math.Pow(e,redistribution);
                 }
             }
+
             return map;
         }
+
         private enum Biome
         {
             LAND,
@@ -81,6 +149,7 @@ namespace galactis
             TROPICAL_SEASONAL_FOREST,
             TROPICAL_RAIN_FOREST
         }
+
         private static Biome GetBiome(double e,double m)
         {
 
@@ -115,6 +184,7 @@ namespace galactis
             if (m < 0.66) return Biome.TROPICAL_SEASONAL_FOREST;
             return Biome.TROPICAL_RAIN_FOREST;
         }
+
         private static Color BiomeColorizer(Biome b)
         {
             switch (b)
@@ -139,7 +209,9 @@ namespace galactis
                 default: return Color.Gray;
             }
         }
+
     }
+
     public class ImageMaker
     {
         public static System.Drawing.Bitmap CreateImage( Color[,] colormap)
@@ -155,6 +227,7 @@ namespace galactis
             }
             return img;
         }
+
         public static void CreateImage(string filename, Color[,] colormap)
         {
             System.Drawing.Bitmap img = new System.Drawing.Bitmap(colormap.GetLength(0), colormap.GetLength(1));
@@ -167,11 +240,11 @@ namespace galactis
                 }
             }
 
-
             img.Save(filename, System.Drawing.Imaging.ImageFormat.Jpeg);
         }
         
     }
+
     public class Perlin
     {
         public int repeat;
@@ -198,19 +271,14 @@ namespace galactis
             {
 
                 total += perlin(x * frequency, y * frequency, z * frequency) * amplitude;
-
-
-
+                
                 maxValue += amplitude;
 
                 amplitude *= persistence;
 
                 frequency *= 2;
-
             }
-
-
-
+            
             return total / maxValue;
 
         }
